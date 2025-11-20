@@ -27,7 +27,7 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
               <div className="p-6 bg-dark-900/50 rounded-xl border border-white/5 text-center hover:bg-dark-900/80 transition-colors">
                 <span className="block text-4xl font-bold text-brand-400 mb-2">735+</span>
                 <span className="text-slate-400 font-medium">LinkedIn Followers</span>
@@ -39,6 +39,34 @@ const About: React.FC = () => {
               <div className="p-6 bg-dark-900/50 rounded-xl border border-white/5 text-center hover:bg-dark-900/80 transition-colors">
                 <span className="block text-4xl font-bold text-green-400 mb-2">99</span>
                 <span className="text-slate-400 font-medium">Certification Grade</span>
+              </div>
+            </div>
+
+            {/* GitHub Stats Widget */}
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-6 text-center">GitHub Activity</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-dark-900/50 rounded-xl p-4 border border-white/5">
+                  <img 
+                    src="https://github-readme-stats.vercel.app/api?username=yosshor&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=0ea5e9&icon_color=a855f7&text_color=cbd5e1"
+                    alt="GitHub Stats"
+                    className="w-full"
+                  />
+                </div>
+                <div className="bg-dark-900/50 rounded-xl p-4 border border-white/5">
+                  <img 
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=yosshor&layout=compact&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=0ea5e9&text_color=cbd5e1"
+                    alt="Top Languages"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+              <div className="mt-4 bg-dark-900/50 rounded-xl p-4 border border-white/5">
+                <img 
+                  src="https://github-readme-streak-stats.herokuapp.com/?user=yosshor&theme=tokyonight&hide_border=true&background=0f172a&ring=0ea5e9&fire=a855f7&currStreakLabel=cbd5e1"
+                  alt="GitHub Streak"
+                  className="w-full"
+                />
               </div>
             </div>
           </div>
