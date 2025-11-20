@@ -141,9 +141,9 @@ const Education: React.FC = () => {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Education & Certifications</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Education & Certifications</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base px-4">
             Academic background, professional certifications, and continuous learning journey in technology.
           </p>
         </div>
@@ -152,7 +152,7 @@ const Education: React.FC = () => {
           {educationData.map((item) => (
             <div 
               key={item.id} 
-              className="glass-panel rounded-2xl p-8 border-t border-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group"
+              className="glass-panel rounded-2xl p-4 sm:p-6 md:p-8 border-t border-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
@@ -172,11 +172,11 @@ const Education: React.FC = () => {
                     )}
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
                     {item.degree}
                   </h3>
                   
-                  <p className="text-brand-400 font-medium text-lg mb-2">
+                  <p className="text-brand-400 font-medium text-base sm:text-lg mb-2">
                     {item.institution}
                   </p>
                   
@@ -187,12 +187,12 @@ const Education: React.FC = () => {
                   )}
                   
                   {item.credentialUrl && (
-                    <div className="flex items-center gap-3 mt-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 mt-3">
                       <a 
                         href={item.credentialUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)]"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)] w-full sm:w-auto"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -203,7 +203,7 @@ const Education: React.FC = () => {
                       <a 
                         href={item.credentialUrl} 
                         download
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] w-full sm:w-auto"
                         title="Download Certificate"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,7 +254,7 @@ const Education: React.FC = () => {
         </div>
 
         {/* Summary Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           <div className="glass-panel rounded-xl p-6 text-center border-t border-green-500/20">
             <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-green-500/10 flex items-center justify-center">
               <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
