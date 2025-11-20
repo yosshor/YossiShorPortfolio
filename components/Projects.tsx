@@ -63,23 +63,23 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-white dark:bg-dark-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Featured Projects</h2>
-            <p className="text-slate-400">A selection of my recent work. Check out the code on GitHub.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+            <p className="text-slate-600 dark:text-slate-400">A selection of my recent work. Check out the code on GitHub.</p>
           </div>
-          <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 font-medium flex items-center gap-1 group">
+          <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 hover:text-brand-500 dark:hover:text-brand-300 font-medium flex items-center gap-1 group">
             View Github <span className="transform group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="group glass-panel rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.2)] border-white/5">
+            <div key={project.id} className="group glass-panel rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.2)] border-slate-200 dark:border-white/5">
               <div className="h-48 overflow-hidden relative">
-                <div className="absolute inset-0 bg-brand-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                <div className="absolute inset-0 bg-brand-500/10 dark:bg-brand-900/20 group-hover:bg-transparent transition-colors z-10"></div>
                 <img 
                   src={project.image} 
                   alt={project.title} 
@@ -89,20 +89,20 @@ const Projects: React.FC = () => {
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">{project.title}</h3>
                   <div className="flex gap-2">
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white p-1">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white p-1">
                         <GithubIcon className="w-5 h-5" />
                       </a>
                     )}
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white p-1">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white p-1">
                       <CodeIcon className="w-5 h-5" />
                     </a>
                   </div>
                 </div>
                 
-                <p className="text-slate-400 text-sm mb-6 line-clamp-3">
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">
                   {project.description}
                 </p>
                 

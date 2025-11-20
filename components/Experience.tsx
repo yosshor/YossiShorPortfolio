@@ -38,33 +38,33 @@ const experiences: ExperienceType[] = [
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-dark-900 relative overflow-hidden">
+    <section id="experience" className="py-24 bg-slate-100 dark:bg-dark-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Journey</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Professional Journey</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             My professional experience and continuous learning in web development and data engineering.
           </p>
         </div>
 
-        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 md:before:ml-[50%] before:-translate-x-px md:before:mx-auto before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 md:before:ml-[50%] before:-translate-x-px md:before:mx-auto before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-slate-700 before:to-transparent">
           {experiences.map((exp, index) => (
             <div key={exp.id} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
               
               {/* Dot */}
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-brand-500 group-hover:bg-brand-400 transition-colors shadow-[0_0_15px_rgba(14,165,233,0.5)] absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 shrink-0">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-100 dark:border-dark-900 bg-brand-500 group-hover:bg-brand-400 transition-colors shadow-[0_0_15px_rgba(14,165,233,0.5)] absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 shrink-0">
               </div>
 
               {/* Card */}
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-xl border-t border-white/10 hover:border-brand-500/30 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-xl border-t border-slate-200 dark:border-white/10 hover:border-brand-500/30 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">{exp.role}</h3>
-                  <span className="text-xs font-mono py-1 px-2 rounded bg-dark-800 text-slate-400 border border-slate-700 mt-2 sm:mt-0">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-300 transition-colors">{exp.role}</h3>
+                  <span className="text-xs font-mono py-1 px-2 rounded bg-slate-200 dark:bg-dark-800 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700 mt-2 sm:mt-0">
                     {exp.period}
                   </span>
                 </div>
-                <p className="text-brand-500 font-medium text-sm mb-3">{exp.company}</p>
-                <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                <p className="text-brand-600 dark:text-brand-500 font-medium text-sm mb-3">{exp.company}</p>
+                <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

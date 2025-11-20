@@ -135,15 +135,15 @@ const Education: React.FC = () => {
   };
 
   return (
-    <section id="education" className="py-24 relative bg-dark-950">
+    <section id="education" className="py-24 relative bg-white dark:bg-dark-950">
       {/* Background Decoration */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-green-500/5 dark:bg-green-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 dark:bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Education & Certifications</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Education & Certifications</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base px-4">
             Academic background, professional certifications, and continuous learning journey in technology.
           </p>
         </div>
@@ -172,16 +172,16 @@ const Education: React.FC = () => {
                     )}
                   </div>
                   
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors">
                     {item.degree}
                   </h3>
                   
-                  <p className="text-brand-400 font-medium text-base sm:text-lg mb-2">
+                  <p className="text-brand-600 dark:text-brand-400 font-medium text-base sm:text-lg mb-2">
                     {item.institution}
                   </p>
                   
                   {item.description && (
-                    <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                    <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4">
                       {item.description}
                     </p>
                   )}
@@ -262,38 +262,38 @@ const Education: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">BSc</h3>
-            <p className="text-slate-400 text-sm">Shenkar (2014-2018)</p>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">BSc</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">Shenkar (2014-2018)</p>
           </div>
 
           <div className="glass-panel rounded-xl p-6 text-center border-t border-brand-500/20">
             <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-500/10 flex items-center justify-center">
-              <svg className="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-brand-500 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">99</h3>
-            <p className="text-slate-400 text-sm">Full Stack Grade</p>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">99</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">Full Stack Grade</p>
           </div>
 
           <div className="glass-panel rounded-xl p-6 text-center border-t border-purple-500/20">
             <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-500/10 flex items-center justify-center">
-              <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-purple-500 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">5</h3>
-            <p className="text-slate-400 text-sm">Certifications & Courses</p>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">5</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">Certifications & Courses</p>
           </div>
 
           <div className="glass-panel rounded-xl p-6 text-center border-t border-cyan-500/20">
             <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-cyan-500/10 flex items-center justify-center">
-              <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-cyan-500 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">884+</h3>
-            <p className="text-slate-400 text-sm">Academic Hours</p>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">884+</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm">Academic Hours</p>
           </div>
         </div>
       </div>

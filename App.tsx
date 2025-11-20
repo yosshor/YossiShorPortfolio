@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,8 +11,8 @@ import ContactForm from './components/ContactForm';
 import ChatWidget from './components/ChatWidget';
 
 const Footer = () => (
-  <footer className="bg-dark-950 py-8 border-t border-white/5 text-center">
-    <p className="text-slate-500 text-sm">
+  <footer className="bg-slate-100 dark:bg-dark-950 py-8 border-t border-slate-200 dark:border-white/5 text-center transition-colors">
+    <p className="text-slate-600 dark:text-slate-500 text-sm">
       © {new Date().getFullYear()} Yossi Shor. Built with React, Tailwind & Gemini.
     </p>
   </footer>
@@ -19,22 +20,24 @@ const Footer = () => (
 
 const App: React.FC = () => {
   return (
-    <div className="bg-dark-950 min-h-screen text-slate-200 selection:bg-brand-500 selection:text-white">
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Education />
-        <Experience />
-        <Projects />
-        <ContactForm />
-      </main>
+    <ThemeProvider>
+      <div className="bg-white dark:bg-dark-950 min-h-screen text-slate-900 dark:text-slate-200 selection:bg-brand-500 selection:text-white transition-colors">
+        <Navbar />
+        
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Education />
+          <Experience />
+          <Projects />
+          <ContactForm />
+        </main>
 
-      <Footer />
-      <ChatWidget />
-    </div>
+        <Footer />
+        <ChatWidget />
+      </div>
+    </ThemeProvider>
   );
 };
 
