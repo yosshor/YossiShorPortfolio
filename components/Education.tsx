@@ -31,12 +31,14 @@ const educationData: EducationItem[] = [
   },
   {
     id: 2,
-    degree: "NAYA-College Data Engineering, Big Data Engineer",
-    institution: "NAYA-College",
+    degree: "Big Data Engineer",
+    institution: "NAYA College",
     period: "Jun 2022 - Apr 2023",
-    type: "course",
-    description: "Data Engineering course (320 academic hours) focusing on big data technologies and data pipeline development.",
+    type: "certification",
+    description: "Data Engineering course (320 academic hours) focusing on big data technologies and data pipeline development. Completed April 2023.",
+    credentialUrl: "/Certifications/BigData.jpg",
     achievements: [
+      "320 hours of intensive training",
       "Python programming for data engineering",
       "Apache Spark Streaming for big data processing",
       "Designed and implemented data architectures",
@@ -89,38 +91,6 @@ const educationData: EducationItem[] = [
   },
   {
     id: 6,
-    degree: "Advanced Concepts in Python",
-    institution: "Campus IL",
-    period: "Issued Sep 2019",
-    type: "certification",
-    description: "Advanced Python programming certification covering modern Python concepts and best practices.",
-    credentialUrl: "https://courses.campus.gov.il/certificates/4aec2d20601e45d4bb386118cc45299d",
-    credentialId: "4aec2d20601e45d4bb386118cc45299d",
-    achievements: [
-      "Advanced Python programming techniques",
-      "Object-oriented programming in Python",
-      "Python data structures and algorithms",
-      "Modern Python development practices"
-    ]
-  },
-  {
-    id: 7,
-    degree: "Introduction to Programming Using Python",
-    institution: "Campus IL",
-    period: "Issued Jul 2019",
-    type: "certification",
-    description: "Foundational Python programming certification covering programming fundamentals and Python basics.",
-    credentialUrl: "https://courses.campus.gov.il/certificates/58e20d72cc64412199a023032f80053c",
-    credentialId: "58e20d72cc64412199a023032f80053c",
-    achievements: [
-      "Python programming fundamentals",
-      "Control structures and functions",
-      "Data types and file handling",
-      "Problem-solving with Python"
-    ]
-  },
-  {
-    id: 8,
     degree: "BSc, Electrical and Electronics Engineering",
     institution: "Shenkar - Engineering. Design. Art.",
     period: "2014 - 2018",
@@ -215,17 +185,31 @@ const Education: React.FC = () => {
                   )}
                   
                   {item.credentialUrl && (
-                    <a 
-                      href={item.credentialUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)] mt-2"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      View Credential
-                    </a>
+                    <div className="flex items-center gap-3 mt-2">
+                      <a 
+                        href={item.credentialUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)]"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        View Certificate
+                      </a>
+                      <a 
+                        href={item.credentialUrl} 
+                        download
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]"
+                        title="Download Certificate"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download
+                      </a>
+                    </div>
                   )}
                 </div>
 
@@ -296,7 +280,7 @@ const Education: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">7+</h3>
+            <h3 className="text-3xl font-bold text-white mb-2">5</h3>
             <p className="text-slate-400 text-sm">Certifications & Courses</p>
           </div>
 
