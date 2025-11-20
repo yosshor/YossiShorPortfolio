@@ -9,6 +9,8 @@ interface EducationItem {
   description?: string;
   achievements?: string[];
   type: 'degree' | 'certification' | 'course';
+  credentialUrl?: string;
+  credentialId?: string;
 }
 
 const educationData: EducationItem[] = [
@@ -43,16 +45,18 @@ const educationData: EducationItem[] = [
   },
   {
     id: 3,
-    degree: "Cyber Course",
+    degree: "Cyber Security Specialist",
     institution: "ITQ college",
     period: "May 2021 - Aug 2021",
-    type: "course",
+    type: "certification",
     description: "Practical training program in the field of servers, networks, SOC, and Firewalls in a joint program with leading cybersecurity companies.",
+    credentialUrl: "https://drive.google.com/file/d/1y70RxQCQXlNHRdhJN8km5sUFeFUk37kN/view?usp=sharing",
+    credentialId: "1y70RxQCQXlNHRdh",
     achievements: [
-      "Server administration and configuration",
+      "Server administration and configuration (Azure, Windows Server)",
       "Network security implementation",
       "Security Operations Center (SOC) operations",
-      "Firewall management and protection strategies"
+      "Firewall management (Checkpoint) and protection strategies"
     ]
   },
   {
@@ -79,12 +83,44 @@ const educationData: EducationItem[] = [
     achievements: [
       "Linear and Logistic regression algorithms",
       "K-Nearest Neighbors (KNN) implementation",
-      "Neural network architectures",
+      "Neural network architectures with PyTorch",
       "Practical ML project development"
     ]
   },
   {
     id: 6,
+    degree: "Advanced Concepts in Python",
+    institution: "Campus IL",
+    period: "Issued Sep 2019",
+    type: "certification",
+    description: "Advanced Python programming certification covering modern Python concepts and best practices.",
+    credentialUrl: "https://courses.campus.gov.il/certificates/4aec2d20601e45d4bb386118cc45299d",
+    credentialId: "4aec2d20601e45d4bb386118cc45299d",
+    achievements: [
+      "Advanced Python programming techniques",
+      "Object-oriented programming in Python",
+      "Python data structures and algorithms",
+      "Modern Python development practices"
+    ]
+  },
+  {
+    id: 7,
+    degree: "Introduction to Programming Using Python",
+    institution: "Campus IL",
+    period: "Issued Jul 2019",
+    type: "certification",
+    description: "Foundational Python programming certification covering programming fundamentals and Python basics.",
+    credentialUrl: "https://courses.campus.gov.il/certificates/58e20d72cc64412199a023032f80053c",
+    credentialId: "58e20d72cc64412199a023032f80053c",
+    achievements: [
+      "Python programming fundamentals",
+      "Control structures and functions",
+      "Data types and file handling",
+      "Problem-solving with Python"
+    ]
+  },
+  {
+    id: 8,
     degree: "BSc, Electrical and Electronics Engineering",
     institution: "Shenkar - Engineering. Design. Art.",
     period: "2014 - 2018",
@@ -148,13 +184,18 @@ const Education: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
                     <span className={`px-3 py-1 rounded-full bg-gradient-to-r ${getTypeColor(item.type)} text-white text-xs font-bold uppercase`}>
                       {getTypeLabel(item.type)}
                     </span>
                     {item.grade && (
                       <span className="px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-xs font-bold">
                         Grade: {item.grade}
+                      </span>
+                    )}
+                    {item.credentialId && (
+                      <span className="px-3 py-1 rounded-full bg-slate-500/20 border border-slate-500/30 text-slate-300 text-xs font-mono">
+                        ID: {item.credentialId}
                       </span>
                     )}
                   </div>
@@ -171,6 +212,20 @@ const Education: React.FC = () => {
                     <p className="text-slate-300 text-sm leading-relaxed mb-4">
                       {item.description}
                     </p>
+                  )}
+                  
+                  {item.credentialUrl && (
+                    <a 
+                      href={item.credentialUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)] mt-2"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      View Credential
+                    </a>
                   )}
                 </div>
 
@@ -241,8 +296,8 @@ const Education: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">5+</h3>
-            <p className="text-slate-400 text-sm">Professional Courses</p>
+            <h3 className="text-3xl font-bold text-white mb-2">7+</h3>
+            <p className="text-slate-400 text-sm">Certifications & Courses</p>
           </div>
 
           <div className="glass-panel rounded-xl p-6 text-center border-t border-cyan-500/20">
