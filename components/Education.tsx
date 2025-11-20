@@ -22,6 +22,8 @@ const educationData: EducationItem[] = [
     grade: "99",
     type: "certification",
     description: "Full Stack Web Development (Frontend & Backend) - 564-hour comprehensive program focused on both frontend and backend development.",
+    credentialUrl: "/Certifications/int-cert-fullstack.png",
+    credentialId: "INT28281I40",
     achievements: [
       "Achieved exceptional grade of 99/100",
       "Built complete web applications using Node.js, Express, React, and SQL databases",
