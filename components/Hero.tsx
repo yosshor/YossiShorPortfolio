@@ -21,7 +21,20 @@ const Hero: React.FC = () => {
             
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
               Hi, I'm <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400">Yossi Shor</span>
+              <span 
+                className="bg-gradient-to-r from-brand-400 to-purple-400"
+                style={{
+                  background: 'linear-gradient(to right, #0ea5e9, #a855f7)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: 'transparent',
+                  borderRadius: '10px',
+                  padding: '10px',
+                }}
+              >
+                Yossi Shor
+              </span>
             </h1>
             
             <p className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-slate-400 leading-relaxed">
