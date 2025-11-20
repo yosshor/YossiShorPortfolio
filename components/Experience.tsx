@@ -12,14 +12,6 @@ const experiences: ExperienceType[] = [
   },
   {
     id: 2,
-    role: "Deep Learning & Sound Recognition",
-    company: "abilisense",
-    period: "Oct 2019 - Apr 2020",
-    description: "Full-time role focusing on deep learning and sound recognition technologies. Worked on innovative audio analysis projects involving construction and wiring of racks containing power source equipment (ZES, Regatron, NI digital I/O). Applied machine learning and deep learning techniques to real-world audio processing challenges.",
-    technologies: ["Python", "Deep Learning", "Machine Learning", "Sound Recognition", "Audio Processing"]
-  },
-  {
-    id: 3,
     role: "Full Stack Developer Certification",
     company: "iNT college - Institute of Innovation & Technology",
     period: "Mar 2024 - Apr 2025",
@@ -27,12 +19,20 @@ const experiences: ExperienceType[] = [
     technologies: ["React", "TypeScript", "Node.js", "MongoDB", "REST APIs", "Git", "Full Stack"]
   },
   {
-    id: 4,
+    id: 3,
     role: "Data Engineering & Big Data Training",
     company: "Professional Training (Naya Project)",
     period: "2023",
     description: "Intensive data engineering program including the Naya Project. Learned to implement data pipelines, analytics solutions, and big data processing. Developed expertise in Streamlit applications for data visualization, Jupyter notebooks for data analysis, and machine learning workflows using Python and Apache Airflow.",
     technologies: ["Python", "Apache Airflow", "Pandas", "Jupyter", "Streamlit", "SQL", "Big Data"]
+  },
+  {
+    id: 4,
+    role: "Deep Learning & Sound Recognition",
+    company: "abilisense",
+    period: "Oct 2019 - Apr 2020",
+    description: "Full-time role focusing on deep learning and sound recognition technologies. Worked on innovative audio analysis projects involving construction and wiring of racks containing power source equipment (ZES, Regatron, NI digital I/O). Applied machine learning and deep learning techniques to real-world audio processing challenges.",
+    technologies: ["Python", "Deep Learning", "Machine Learning", "Sound Recognition", "Audio Processing"]
   }
 ];
 
