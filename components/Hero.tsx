@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 Contact Me
               </a>
               <a 
-                href="/PDF/C.V - Yossi Shor.pdf" 
+                href="/pdf/C.V - Yossi Shor.pdf" 
                 download="Yossi_Shor_CV.pdf"
                 className="px-8 py-3.5 rounded-lg glass-panel text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/10 transition-all w-full sm:w-auto text-center inline-flex items-center justify-center gap-2"
               >
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
               {/* Image Container */}
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden border-2 border-slate-300 dark:border-white/10 shadow-2xl bg-slate-100 dark:bg-dark-900">
                 <img 
-                  src="/yossiShor.jpg" 
+                  src="/images/yossiShor.jpg" 
                   alt="Yossi Shor" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
