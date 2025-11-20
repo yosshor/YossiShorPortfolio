@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
                 <LinkedinIcon className="w-7 h-7" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="mailto:yossishor@gmail.com" className="text-slate-400 hover:text-brand-400 transition-colors transform hover:scale-110">
+              <a href="mailto:yossishor30@gmail.com" className="text-slate-400 hover:text-brand-400 transition-colors transform hover:scale-110">
                 <MailIcon className="w-7 h-7" />
                 <span className="sr-only">Email</span>
               </a>
@@ -63,12 +63,12 @@ const Hero: React.FC = () => {
               {/* Image Container */}
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden border-2 border-white/10 shadow-2xl bg-dark-900">
                 <img 
-                  src="https://avatars.githubusercontent.com/u/54455502?v=4" 
+                  src="/yossiShor.jpg" 
                   alt="Yossi Shor" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback if image not found
-                    e.currentTarget.src = 'https://ui-avatars.com/api/?name=Yossi+Shor&background=0ea5e9&color=fff&size=400';
+                    // Fallback to GitHub avatar if profile image not found
+                    e.currentTarget.src = 'https://avatars.githubusercontent.com/u/54455502?v=4';
                   }}
                 />
               </div>
