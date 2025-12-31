@@ -12,9 +12,10 @@ const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>, setShowFall
 };
 
 const About: React.FC = () => {
-  const [streakError, setStreakError] = useState(false);
-  const [statsError, setStatsError] = useState(false);
-  const [langsError, setLangsError] = useState(false);
+  const [profileError, setProfileError] = useState(false);
+  const [statsCardError, setStatsCardError] = useState(false);
+  const [productiveTimeError, setProductiveTimeError] = useState(false);
+  const [languagesError, setLanguagesError] = useState(false);
   return (
     <section id="about" className="py-24 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,9 +60,40 @@ const About: React.FC = () => {
             {/* GitHub Stats Widget */}
             <div className="max-w-3xl mx-auto">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 text-center">GitHub Activity</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              {/* Profile Details Card */}
+              <div className="mb-4 bg-slate-100 dark:bg-dark-900/50 rounded-xl p-4 border border-slate-200 dark:border-white/5 relative">
+                {profileError ? (
+                  <div className="text-center py-8 text-slate-600 dark:text-slate-400">
+                    <p className="text-sm mb-2">Unable to load GitHub profile details</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-500 mb-3">This is likely a GitHub API issue</p>
+                    <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm">
+                      View profile on GitHub →
+                    </a>
+                  </div>
+                ) : (
+                  <>
+                    <img
+                      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yosshor&theme=tokyonight"
+                      alt="GitHub Profile Details"
+                      className="w-full dark:block hidden"
+                      onError={(e) => handleImageError(e, setProfileError)}
+                    />
+                    <img
+                      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yosshor&theme=default"
+                      alt="GitHub Profile Details"
+                      className="w-full dark:hidden block"
+                      onError={(e) => handleImageError(e, setProfileError)}
+                    />
+                  </>
+                )}
+              </div>
+
+              {/* Stats and Activity Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                {/* Stats Card */}
                 <div className="bg-slate-100 dark:bg-dark-900/50 rounded-xl p-4 border border-slate-200 dark:border-white/5 relative">
-                  {statsError ? (
+                  {statsCardError ? (
                     <div className="text-center py-8 text-slate-600 dark:text-slate-400">
                       <p className="text-sm">Unable to load GitHub stats</p>
                       <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm mt-2 inline-block">
@@ -71,82 +103,71 @@ const About: React.FC = () => {
                   ) : (
                     <>
                       <img
-                        src="https://github-readme-stats-mu-cyan.vercel.app/api?username=yosshor&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=0ea5e9&icon_color=a855f7&text_color=cbd5e1"
+                        src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yosshor&theme=tokyonight"
                         alt="GitHub Stats"
                         className="w-full dark:block hidden"
-                        onError={(e) => handleImageError(e, setStatsError)}
+                        onError={(e) => handleImageError(e, setStatsCardError)}
                       />
                       <img
-                        src="https://github-readme-stats-mu-cyan.vercel.app/api?username=yosshor&show_icons=true&theme=default&hide_border=true&bg_color=f1f5f9&title_color=0284c7&icon_color=a855f7&text_color=334155"
+                        src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yosshor&theme=default"
                         alt="GitHub Stats"
                         className="w-full dark:hidden block"
-                        onError={(e) => handleImageError(e, setStatsError)}
+                        onError={(e) => handleImageError(e, setStatsCardError)}
                       />
                     </>
                   )}
                 </div>
+
+                {/* Productive Time Card */}
                 <div className="bg-slate-100 dark:bg-dark-900/50 rounded-xl p-4 border border-slate-200 dark:border-white/5 relative">
-                  {langsError ? (
+                  {productiveTimeError ? (
                     <div className="text-center py-8 text-slate-600 dark:text-slate-400">
-                      <p className="text-sm">Unable to load language stats</p>
-                      <a href="https://github.com/yosshor?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm mt-2 inline-block">
-                        View repositories →
+                      <p className="text-sm">Unable to load productive time data</p>
+                      <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm mt-2 inline-block">
+                        View on GitHub →
                       </a>
                     </div>
                   ) : (
                     <>
                       <img
-                        src="https://github-readme-stats-mu-cyan.vercel.app/api/top-langs/?username=yosshor&layout=compact&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=0ea5e9&text_color=cbd5e1"
-                        alt="Top Languages"
+                        src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=yosshor&theme=tokyonight"
+                        alt="Productive Time"
                         className="w-full dark:block hidden"
-                        onError={(e) => handleImageError(e, setLangsError)}
+                        onError={(e) => handleImageError(e, setProductiveTimeError)}
                       />
                       <img
-                        src="https://github-readme-stats-mu-cyan.vercel.app/api/top-langs/?username=yosshor&layout=compact&theme=default&hide_border=true&bg_color=f1f5f9&title_color=0284c7&text_color=cbd5e1"
-                        alt="Top Languages"
+                        src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=yosshor&theme=default"
+                        alt="Productive Time"
                         className="w-full dark:hidden block"
-                        onError={(e) => handleImageError(e, setLangsError)}
+                        onError={(e) => handleImageError(e, setProductiveTimeError)}
                       />
                     </>
                   )}
                 </div>
               </div>
-              <div className="mt-4 bg-slate-100 dark:bg-dark-900/50 rounded-xl p-4 border border-slate-200 dark:border-white/5 relative">
-                {streakError ? (
+
+              {/* Most Commit Language Card (Pie Chart) */}
+              <div className="bg-slate-100 dark:bg-dark-900/50 rounded-xl p-4 border border-slate-200 dark:border-white/5 relative">
+                {languagesError ? (
                   <div className="text-center py-8 text-slate-600 dark:text-slate-400">
-                    <p className="text-sm mb-2">Unable to load contribution streak</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-500 mb-3">This is likely a GitHub API issue</p>
-                    <a href="https://github.com/yosshor" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm">
-                      View profile on GitHub →
+                    <p className="text-sm">Unable to load language statistics</p>
+                    <a href="https://github.com/yosshor?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-brand-400 hover:underline text-sm mt-2 inline-block">
+                      View repositories →
                     </a>
                   </div>
                 ) : (
                   <>
                     <img
-                      src="https://github-readme-streak-stats.demolab.com/?user=yosshor&theme=tokyonight&hide_border=true&background=0f172a&ring=0ea5e9&fire=a855f7&currStreakLabel=cbd5e1"
-                      alt="GitHub Streak"
+                      src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yosshor&theme=tokyonight"
+                      alt="Most Used Languages"
                       className="w-full dark:block hidden"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        if (img.src.includes('demolab.com')) {
-                          img.src = 'https://github-readme-streak-stats.herokuapp.com/?user=yosshor&theme=tokyonight&hide_border=true&background=0f172a&ring=0ea5e9&fire=a855f7&currStreakLabel=cbd5e1';
-                        } else {
-                          handleImageError(e, setStreakError);
-                        }
-                      }}
+                      onError={(e) => handleImageError(e, setLanguagesError)}
                     />
                     <img
-                      src="https://github-readme-streak-stats.demolab.com/?user=yosshor&theme=default&hide_border=true&background=f1f5f9&ring=0284c7&fire=a855f7&currStreakLabel=334155"
-                      alt="GitHub Streak"
+                      src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yosshor&theme=default"
+                      alt="Most Used Languages"
                       className="w-full dark:hidden block"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        if (img.src.includes('demolab.com')) {
-                          img.src = 'https://github-readme-streak-stats.herokuapp.com/?user=yosshor&theme=default&hide_border=true&background=f1f5f9&ring=0284c7&fire=a855f7&currStreakLabel=334155';
-                        } else {
-                          handleImageError(e, setStreakError);
-                        }
-                      }}
+                      onError={(e) => handleImageError(e, setLanguagesError)}
                     />
                   </>
                 )}
