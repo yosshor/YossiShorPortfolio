@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MailIcon } from './Icons';
+import { sendEmail } from '../services/emailService';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,29 +11,46 @@ const ContactForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const email = 'yossishor30@gmail.com';
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
+  /**
+   * Handles input field changes and updates form state.
+   * @param e - Change event from input or textarea element
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Handles form submission and sends email via EmailJS.
+   * @param e - Form submit event
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
     
     try {
-      // For now, just open email client with pre-filled data
-      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      window.location.href = mailtoLink;
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      });
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }, 15000);
     }
   };
 
@@ -126,7 +144,7 @@ const ContactForm: React.FC = () => {
 
             {submitStatus === 'error' && (
               <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                <p className="text-red-400 text-sm">✗ Something went wrong. Please try again.</p>
+                <p className="text-red-400 text-sm">✗ {errorMessage || 'Something went wrong. Please try again.'}</p>
               </div>
             )}
 
