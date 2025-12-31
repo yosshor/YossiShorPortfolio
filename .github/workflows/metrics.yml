@@ -1,13 +1,8 @@
-name: GitHub Metrics Generator
+name: Full Professional Metrics
 on:
-  schedule:
-    # Runs twice a day at 00:00 and 12:00 UTC
-    - cron: "0 0 * * *"
+  schedule: [{cron: "0 */12 * * *"}] # רץ פעמיים ביום
   workflow_dispatch:
-  push:
-    branches: ["master", "main"]
-    paths:
-      - ".github/workflows/metrics.yml"
+  push: {branches: ["master", "main"]}
 
 jobs:
   github-metrics:
@@ -15,100 +10,46 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate GitHub Metrics
-        uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@latest
         with:
-          # Authentication
           token: ${{ secrets.METRICS_TOKEN }}
-          
-          # User configuration
           user: yosshor
-          
-          # Template and base content
           template: classic
           base: header, activity, community, repositories, metadata
-          
-          # Output configuration
-          filename: github-metrics.svg
-          output_action: commit
-          
-          # Timezone
           config_timezone: Asia/Jerusalem
           
-          # Display settings
-          config_display: large
-          config_padding: 0, 5%
-          
-          # Plugin order
-          config_order: >-
-            base.header,
-            base.activity,
-            plugin_isocalendar,
-            plugin_habits,
-            plugin_languages,
-            plugin_achievements,
-            plugin_lines,
-            plugin_notable,
-            base.community,
-            base.repositories,
-            base.metadata
-          
-          # 1. Isometric Calendar - 3D contribution graph
+          # 1. גרף פעילות תלת-ממדי (הכי יפה שיש)
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           
-          # 2. Habits - Coding habits and activity patterns
+          # 2. הרגלי עבודה (Habits) - מציג מתי אתה הכי פעיל
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 14
           plugin_habits_facts: yes
           plugin_habits_charts: yes
-          plugin_habits_trim: yes
           
-          # 3. Languages - Most used programming languages
+          # 3. שפות תכנות מורחב (עם אחוזי דיוק)
           plugin_languages: yes
-          plugin_languages_ignored: html, css, scss, jupyter notebook
+          plugin_languages_ignored: html, css, jupyter notebook # נתעלם משפות "עיצוב" כדי להדגיש לוגיקה
           plugin_languages_details: bytes-size, percentage
           plugin_languages_sections: most-used
           plugin_languages_limit: 8
-          plugin_languages_colors: github
-          plugin_languages_threshold: 0%
           
-          # 4. Achievements - GitHub achievements
+          # 4. הישגים (Achievements) - פתרון השגיאה ע"י שימוש בגרסה יציבה
           plugin_achievements: yes
           plugin_achievements_display: detailed
-          plugin_achievements_secrets: yes
+          plugin_achievements_secrets: yes # מציג גם הישגים נסתרים
           plugin_achievements_threshold: C
           
-          # 5. Lines of Code - Code statistics
+          # 5. סטטיסטיקות קוד (Lines of Code)
           plugin_lines: yes
           
-          # 6. Notable contributions - Notable contributions to repositories
+          # 6. תגובות ופעילות ב-Issues (Community)
           plugin_notable: yes
           plugin_notable_from: all
-          plugin_notable_repositories: yes
-          plugin_notable_types: commit, issue, pull-request, discussion
           
-          # 7. Activity - Recent activity
-          plugin_activity: yes
-          plugin_activity_limit: 5
-          plugin_activity_days: 14
-          plugin_activity_filter: all
-          
-          # 8. Repositories - Featured repositories
-          plugin_repositories: yes
-          plugin_repositories_featured: yosshor/Yossi-Shor-Portfolio
-          
-          # 9. Community - Community stats
-          plugin_people: yes
-          plugin_people_limit: 12
-          plugin_people_types: followers, following
-          
-          # 10. Stargazers - Recent stargazers
-          plugin_stargazers: yes
-          
-          # 11. Follow-up - Issues and PRs follow-up
-          plugin_followup: yes
-          
-          # 12. Gists - Public gists
-          plugin_gists: yes
+          # 7. הגדרות עיצוב מתקדמות
+          config_order: base.header, isocalendar, habits, languages, achievements
+          config_padding: 0, 5%
+          config_display: large
