@@ -15,24 +15,66 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # ה-Token שהגדרת ב-Secrets
           token: ${{ secrets.METRICS_TOKEN }}
-
-          # הגדרות תצוגה
           user: yosshor
           template: classic
-          base: header, activity, community, repositories, metadata
+          base: header, repositories
           config_timezone: Asia/Jerusalem
           
-          # הצגת נתונים פרטיים (זה מה שחיפשת!)
-          config_order: base.header, isocalendar, languages, achievements
+          # גרף פעילות תלת-ממדי (Isocalendar) - נראה מעולה בפורטפוליו
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
           
-          # הוספת תוסף שפות (דומה למה שהיה לך קודם)
+          # שפות תכנות - תצוגה נקייה יותר
           plugin_languages: yes
-        #   plugin_languages_ignored: html, css
-          plugin_languages_details: bytes-size, percentage
-          plugin_languages_limit: 8
+          plugin_languages_details: percentage
+          plugin_languages_sections: most-used
+          # הסרנו את plugin_languages_indented שגרם לשגיאה
           
-          # הוספת תוסף "הישגים" (אופציונלי ומגניב)
+          # הישגים (Achievements) - מוסיף צבע ועניין
           plugin_achievements: yes
           plugin_achievements_display: compact
+          plugin_achievements_threshold: B
+          
+          # הגדרות עיצוב כלליות
+          config_display: large
+          config_twemoji: yes
+
+# name: Metrics
+# on:
+#   # רץ כל 12 שעות באופן אוטומטי
+#   schedule: [{cron: "0 */12 * * *"}]
+#   # מאפשר להריץ ידנית דרך לשונית Actions
+#   workflow_dispatch:
+#   # רץ בכל פעם שאתה דוחף קוד ל-main
+#   push: {branches: ["master", "main"]}
+
+# jobs:
+#   github-metrics:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: lowlighter/metrics@latest
+#         with:
+#           # ה-Token שהגדרת ב-Secrets
+#           token: ${{ secrets.METRICS_TOKEN }}
+
+#           # הגדרות תצוגה
+#           user: yosshor
+#           template: classic
+#           base: header, activity, community, repositories, metadata
+#           config_timezone: Asia/Jerusalem
+          
+#           # הצגת נתונים פרטיים (זה מה שחיפשת!)
+#           config_order: base.header, isocalendar, languages, achievements
+          
+#           # הוספת תוסף שפות (דומה למה שהיה לך קודם)
+#           plugin_languages: yes
+#         #   plugin_languages_ignored: html, css
+#           plugin_languages_details: bytes-size, percentage
+#           plugin_languages_limit: 8
+          
+#           # הוספת תוסף "הישגים" (אופציונלי ומגניב)
+#           plugin_achievements: yes
+#           plugin_achievements_display: compact
