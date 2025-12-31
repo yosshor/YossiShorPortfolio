@@ -15,43 +15,47 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: yosshor
           template: classic
+          # Base settings
           base: header, activity, community, repositories, metadata
           config_timezone: Asia/Jerusalem
           
-          # 1. גרף פעילות תלת-ממדי (הכי יפה שיש)
+          # 1. Isocalendar - 3D contribution graph
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           
-          # 2. הרגלי עבודה (Habits) - מציג מתי אתה הכי פעיל
+          # 2. Coding Habits - Coding habits and activity patterns
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 14
           plugin_habits_facts: yes
           plugin_habits_charts: yes
           
-          # 3. שפות תכנות מורחב (עם אחוזי דיוק ואייקונים)
+          # 3. Languages - Most used programming languages
           plugin_languages: yes
-          plugin_languages_ignored: html, css, jupyter notebook # נתעלם משפות "עיצוב" כדי להדגיש לוגיקה
+          plugin_languages_ignored: html, css, dockerfile, shell, r
           plugin_languages_details: bytes-size, percentage
           plugin_languages_sections: most-used
           plugin_languages_limit: 8
-          # אייקונים לשפות מוצגים כברירת מחדל ב-lowlighter/metrics
           
-          # 4. הישגים (Achievements) - פתרון השגיאה ע"י שימוש בגרסה יציבה
+          # 4. Achievements - Detailed achievements
           plugin_achievements: yes
           plugin_achievements_display: detailed
-          plugin_achievements_secrets: yes # מציג גם הישגים נסתרים
+          plugin_achievements_secrets: yes
           plugin_achievements_threshold: C
-          
-          # 5. סטטיסטיקות קוד (Lines of Code)
+          plugin_lines_sections: base
+
+          # 5. Notable - Show your notable contributions
           plugin_lines: yes
-          
-          # 6. תגובות ופעילות ב-Issues (Community)
           plugin_notable: yes
           plugin_notable_from: all
+          plugin_notable_types: commit, pull_request
           
-          # 7. הגדרות עיצוב מתקדמות
-          config_order: base.header, isocalendar, habits, languages, achievements
-          config_padding: 0, 5%
-          config_display: large
-          config_twemoji: yes
+          # 6. Repositories - Show your most popular repositories
+          plugin_stars: yes
+          plugin_stars_limit: 4
+
+          # Advanced design settings
+          config_order: base.header, isocalendar, languages, notable, habits, achievements
+          config_padding: 0, 8%
+          output_action: commit
+          committer_branch: main
