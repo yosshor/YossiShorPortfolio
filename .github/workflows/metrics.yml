@@ -1,6 +1,6 @@
 name: Full Professional Metrics
 on:
-  schedule: [{cron: "0 */12 * * *"}] # רץ פעמיים ביום
+  schedule: [{cron: "0 0 1 * *"}] # Runs once a month on the 1st day at 00:00 UTC 
   workflow_dispatch:
   push: {branches: ["master", "main"]}
 
